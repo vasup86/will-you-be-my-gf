@@ -11,102 +11,153 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(
-    circle at top,
-    #ffe6f2 0,
-    #ffcce6 30%,
-    #ffb3d9 60%,
-    #ff99cc 100%
-  );
+  background: #ffeaf3; /* soft pink like the example */
   color: #333;
+}
+
+/* ——— floating hearts ——— */
+
+.heart {
+  position: fixed;
+  font-size: 1.9rem;
+  color: #ff7fa9;
+  opacity: 0.9;
+}
+
+.heart-1 {
+  top: 8%;
+  left: 8%;
+}
+
+.heart-2 {
+  top: 12%;
+  right: 10%;
+}
+
+.heart-3 {
+  bottom: 14%;
+  left: 16%;
+}
+
+.heart-4 {
+  bottom: 10%;
+  right: 14%;
+}
+
+/* ——— “browser window” wrapper ——— */
+
+.window {
+  background: #ffffff;
+  border-radius: 1.5rem;
+  border: 2px solid #ffc7dc;
+  box-shadow: 0 18px 40px rgba(255, 120, 170, 0.4);
+  width: min(360px, 90vw);
   overflow: hidden;
 }
 
+/* top bar with URL like the reference image */
+.window-top {
+  height: 40px;
+  background: #fff6fb;
+  border-bottom: 1px solid #ffd6e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.window-url {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #999;
+}
+
+/* ——— inner card content ——— */
+
 .card {
-  background: #fff;
-  padding: 2.75rem 3rem;
-  border-radius: 1.5rem;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   text-align: center;
-  max-width: 420px;
-  width: 90%;
-  position: relative;
+  padding: 2.2rem 2rem 2.4rem;
 }
 
-.card::before {
-  content: "💖";
-  position: absolute;
-  font-size: 2.5rem;
-  left: 12px;
-  top: 12px;
-}
-
-.card::after {
-  content: "💖";
-  position: absolute;
-  font-size: 2.5rem;
-  right: 12px;
-  bottom: 12px;
+.eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #b3a1af;
+  margin-bottom: 0.75rem;
 }
 
 h1 {
   font-size: 1.9rem;
-  margin-bottom: 0.75rem;
+  color: #ff4b8b;
+  margin-bottom: 0.25rem;
 }
 
-p.subtitle {
-  font-size: 0.95rem;
-  margin-bottom: 2rem;
-  color: #666;
+.subtitle.main {
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 1.3rem;
 }
+
+.subtitle.small {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 1.6rem;
+}
+
+/* ——— buttons ——— */
 
 .buttons {
   display: flex;
   justify-content: center;
-  gap: 1.25rem;
-  margin-top: 1rem;
-  position: relative;
+  gap: 0.9rem;
+  margin-bottom: 1.2rem;
 }
 
 button {
   border: none;
-  padding: 0.75rem 1.6rem;
+  padding: 0.6rem 1.6rem;
   border-radius: 999px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease,
     color 0.2s ease;
   white-space: nowrap;
 }
 
+/* main pink button like the “NEXT” in the example */
 #yesBtn {
-  background: linear-gradient(135deg, #ff4b8b, #ff7ab8);
+  background: linear-gradient(135deg, #ff7aa9, #ff4b8b);
   color: #fff;
-  box-shadow: 0 8px 18px rgba(255, 75, 139, 0.4);
+  box-shadow: 0 8px 18px rgba(255, 75, 139, 0.45);
 }
 
 #yesBtn:hover {
   transform: translateY(-1px) scale(1.03);
-  box-shadow: 0 10px 22px rgba(255, 75, 139, 0.5);
+  box-shadow: 0 11px 24px rgba(255, 75, 139, 0.55);
 }
 
+/* softer outline-style button for “No” */
 #noBtn {
-  background: #f2f2f2;
-  color: #555;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  position: relative;
+  background: #e3d7f2;
+  color: #777;
+  border: 1px solid #e3d7f2;
+  box-shadow: 0 4px 10px rgba(170, 180, 255, 0.4);
 }
 
 #noBtn:hover {
   transform: translateY(-1px);
 }
 
+/* ——— message area ——— */
+
 .message {
-  margin-top: 1.75rem;
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #ff2f7e;
-  min-height: 1.5em;
+  min-height: 1.2em;
 }
 
 .message small {
@@ -115,6 +166,8 @@ button {
   font-size: 0.8rem;
   color: #777;
 }
+
+/* ——— confetti (if you use it in script.js) ——— */
 
 .confetti {
   position: fixed;
@@ -137,19 +190,23 @@ button {
   }
 }
 
+/* ——— mobile tweaks ——— */
+
 @media (max-width: 480px) {
   .card {
-    padding: 2.25rem 1.75rem;
+    padding: 2rem 1.5rem 2.2rem;
   }
+
   h1 {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
   }
-  .buttons {
-    flex-direction: row;
-    gap: 0.75rem;
+
+  .subtitle.main {
+    font-size: 0.8rem;
   }
+
   button {
-    padding: 0.6rem 1.15rem;
+    padding: 0.55rem 1.35rem;
     font-size: 0.9rem;
   }
 }

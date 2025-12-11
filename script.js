@@ -21,7 +21,7 @@ document.addEventListener("mousemove", (e) => {
   const btnCenterY = rect.top + rect.height / 2;
 
   const distance = Math.hypot(e.clientX - btnCenterX, e.clientY - btnCenterY);
-  const dodgeRadius = 120;
+  const dodgeRadius = 60;
 
   if (distance < dodgeRadius) {
     moveNoButton();
