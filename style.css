@@ -1,0 +1,155 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(
+    circle at top,
+    #ffe6f2 0,
+    #ffcce6 30%,
+    #ffb3d9 60%,
+    #ff99cc 100%
+  );
+  color: #333;
+  overflow: hidden;
+}
+
+.card {
+  background: #fff;
+  padding: 2.75rem 3rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  max-width: 420px;
+  width: 90%;
+  position: relative;
+}
+
+.card::before {
+  content: "💖";
+  position: absolute;
+  font-size: 2.5rem;
+  left: 12px;
+  top: 12px;
+}
+
+.card::after {
+  content: "💖";
+  position: absolute;
+  font-size: 2.5rem;
+  right: 12px;
+  bottom: 12px;
+}
+
+h1 {
+  font-size: 1.9rem;
+  margin-bottom: 0.75rem;
+}
+
+p.subtitle {
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 1rem;
+  position: relative;
+}
+
+button {
+  border: none;
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease,
+    color 0.2s ease;
+  white-space: nowrap;
+}
+
+#yesBtn {
+  background: linear-gradient(135deg, #ff4b8b, #ff7ab8);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(255, 75, 139, 0.4);
+}
+
+#yesBtn:hover {
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 10px 22px rgba(255, 75, 139, 0.5);
+}
+
+#noBtn {
+  background: #f2f2f2;
+  color: #555;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+#noBtn:hover {
+  transform: translateY(-1px);
+}
+
+.message {
+  margin-top: 1.75rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ff2f7e;
+  min-height: 1.5em;
+}
+
+.message small {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.confetti {
+  position: fixed;
+  top: -10px;
+  width: 8px;
+  height: 14px;
+  opacity: 0.9;
+  border-radius: 2px;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotateZ(0deg) rotateX(0deg);
+  }
+  100% {
+    transform: translateY(110vh) rotateZ(360deg) rotateX(180deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 2.25rem 1.75rem;
+  }
+  h1 {
+    font-size: 1.6rem;
+  }
+  .buttons {
+    flex-direction: row;
+    gap: 0.75rem;
+  }
+  button {
+    padding: 0.6rem 1.15rem;
+    font-size: 0.9rem;
+  }
+}
